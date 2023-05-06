@@ -12,7 +12,7 @@ function Pants({params} : Props) {
   }
   return (
     <div>
-      {params.slug} 바지 제품 설명 페이
+      {params.slug} 제품 설명 페이지
     </div>
   );
 }
@@ -21,7 +21,7 @@ export default Pants;
 
 
 export function generateStaticParams() {
-  const products = ['pants', 'skirt'];
+  const products = ['shirt', 'pants', 'skirt', 'shoes'];
 
   return products.map(product => ({
     slug: product,
