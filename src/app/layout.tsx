@@ -1,14 +1,10 @@
-import Link from 'next/link'
-import './globals.css'
-import styles from './layout.module.css'
+import Link from 'next/link';
+import './globals.css';
+import styles from './layout.module.css';
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       {/*
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
@@ -21,11 +17,10 @@ export default function RootLayout({
             <Link href='/products'>products</Link>
             <Link href='/about'>about</Link>
             <Link href='/contact'>Contact</Link>
-            
           </nav>
         </header>
         {children}
       </body>
     </html>
-  )
+  );
 }
