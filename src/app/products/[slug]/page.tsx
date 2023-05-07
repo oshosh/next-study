@@ -1,3 +1,4 @@
+import { getProduct, getProducts } from "@/service/products";
 import { notFound } from "next/navigation";
 
 type Props = {
@@ -6,14 +7,17 @@ type Props = {
   }
 }
 
-function Pants({params} : Props) {
-  if(params.slug === 'nothing') {
+function Pants({params: {slug}} : Props) {
+  const product = getProduct(slug)
+
+  if(!product) {
     notFound();
   }
+
   return (
-    <div>
-      {params.slug} 제품 설명 페이지
-    </div>
+    <h1>
+      {product} 제품 설명 페이지
+    </h1>
   );
 }
 
@@ -21,7 +25,7 @@ export default Pants;
 
 
 export function generateStaticParams() {
-  const products = ['shirt', 'pants', 'skirt', 'shoes'];
+  const products = getProducts();
 
   return products.map(product => ({
     slug: product,
