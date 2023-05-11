@@ -1,5 +1,6 @@
 import { getProduct, getProducts } from '@/service/products';
 import { notFound } from 'next/navigation';
+export const revalidate = 3;
 
 type Props = {
   params: {
@@ -7,22 +8,20 @@ type Props = {
   };
 };
 
-function Pants({ params: { slug } }: Props) {
-  const product = getProduct(slug);
+export default async function ProductPage({ params: { slug } }: Props) {
+  const product = await getProduct(slug);
 
   if (!product) {
     notFound();
   }
 
-  return <h1>{product} 제품 설명 페이지</h1>;
+  return <h1>{product.name} 제품 설명 페이지</h1>;
 }
 
-export default Pants;
-
-export function generateStaticParams() {
-  const products = getProducts();
+export async function generateStaticParams() {
+  const products = await getProducts();
 
   return products.map((product) => ({
-    slug: product,
+    slug: product.id,
   }));
 }
