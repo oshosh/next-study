@@ -1,10 +1,7 @@
 import Counter from '@/components/Counter';
-import { Inter } from '@next/font/google';
 import Image from 'next/image';
 import os from 'os'; // 노드 api
 // import { useState } from 'react';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   console.log('안녕!');
