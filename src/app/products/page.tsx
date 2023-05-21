@@ -2,6 +2,8 @@ import { getProducts } from '@/service/products';
 import Link from 'next/link';
 import styles from './page.module.css';
 import MeowArticle from '@/components/MeowArticle';
+import clothesImage from 'public/images/clothes.jpg';
+import Image from 'next/image';
 // export const revalidate = 3;
 
 async function ProductPage() {
@@ -17,7 +19,8 @@ async function ProductPage() {
 
   return (
     <div>
-      제품 소개 페이지!
+      <h1>제품 소개 페이지!</h1>
+      <Image src={clothesImage} alt='Clothes' priority />
       <ul>
         {products.map(({ id, name }, index) => {
           return (
