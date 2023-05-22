@@ -1,6 +1,7 @@
+import GoProductButton from '@/components/GoProductButton';
 import { getProduct, getProducts } from '@/service/products';
 import Image from 'next/image';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 
 export const revalidate = 3;
 
@@ -14,7 +15,8 @@ export default async function ProductPage({ params: { slug } }: Props) {
   const product = await getProduct(slug);
 
   if (!product) {
-    notFound();
+    redirect('/products');
+    // notFound();
   }
 
   return (
@@ -27,7 +29,7 @@ export default async function ProductPage({ params: { slug } }: Props) {
         height={300}
         priority
       />
-      ;
+      <GoProductButton />
     </>
   );
 }
