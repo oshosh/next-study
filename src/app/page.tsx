@@ -1,10 +1,11 @@
 'use client';
-import Counter from '@/components/Counter';
-import Image from 'next/image';
 import os from 'os'; // 노드 api
+import Image from 'next/image';
+import { ChangeEvent, useState } from 'react';
 import Button from '@/components/Button';
+import Counter from '@/components/Counter';
+import DelayInput from '@/components/DelayInput';
 import Text from '@/components/Text';
-import { styled } from 'styled-components';
 // import { useState } from 'react';
 
 export default function Home() {
@@ -12,9 +13,14 @@ export default function Home() {
   console.log(os.hostname());
 
   // const [name, setName] = useState('');
-
+  const [text, setText] = useState('');
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value);
+  };
   return (
     <>
+      <DelayInput onChange={onChange} />
+      <div>{text}</div>
       <Button $color='blue' $backgroundColor='red'>
         <Text>버튼 텍스트</Text>
       </Button>

@@ -1,9 +1,9 @@
-import { getProducts } from '@/service/products';
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.css';
 import MeowArticle from '@/components/MeowArticle';
+import { getProducts } from '@/service/products';
 import clothesImage from 'public/images/clothes.jpg';
-import Image from 'next/image';
 // export const revalidate = 3;
 
 async function ProductPage() {

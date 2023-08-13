@@ -1,7 +1,6 @@
-import MeowArticle from '@/components/MeowArticle';
-import { getProducts } from '@/service/products';
-import { Product } from '@/service/products';
 import Link from 'next/link';
+import MeowArticle from '@/components/MeowArticle';
+import { getProducts, Product } from '@/service/products';
 
 type Props = {
   products: Product[];

@@ -1,8 +1,8 @@
-import { Meta, StoryFn } from '@storybook/react';
-import { StyledButton } from '@/components/StyledButton';
-import { MouseEvent, useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
+import { Meta, StoryFn } from '@storybook/react';
+import { MouseEvent, useState } from 'react';
+import { StyledButton } from '@/components/StyledButton';
 
 export default {
   title: 'StyledButton',

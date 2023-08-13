@@ -1,7 +1,8 @@
+import Image from 'next/image';
+// import { notFound, redirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import GoProductButton from '@/components/GoProductButton';
 import { getProduct, getProducts } from '@/service/products';
-import Image from 'next/image';
-import { notFound, redirect } from 'next/navigation';
 
 export const revalidate = 3;
 
