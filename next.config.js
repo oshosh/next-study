@@ -11,13 +11,30 @@ const nextConfig = {
     if (process.env.NODE_ENV === 'production') {
       compilerConfig = {
         ...compilerConfig,
-        // 프러덕션 환경에서는 React Testing Library에서 사용하는 data-testid 속성을 삭제
+        // production 환경에서는 React Testing Library에서 사용하는 data-testid 속성을 삭제
         reactRemoveProperties: { properties: ['^data-testid$'] },
       };
     }
-
     return compilerConfig;
   })(),
+  async rewrites() {
+    return [
+      {
+        // ex. /api/proxy
+        source: `${process.env.NEXT_PUBLIC_API_BASE_PATH}/:match*`,
+        // ex. http://localhost:8000
+        destination: `${process.env.API_BASE_URL}/:match*`,
+      },
+      {
+        source: '/osh',
+        destination: '/about/me/osh',
+      },
+      {
+        source: '/items/:slug',
+        destination: '/products/:slug',
+      },
+    ];
+  },
   experimental: {
     appDir: true,
   },
@@ -40,18 +57,6 @@ const nextConfig = {
         source: '/products/deleted_temp',
         destination: '/products',
         permanent: false,
-      },
-    ];
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/osh',
-        destination: '/about/me/osh',
-      },
-      {
-        source: '/items/:slug',
-        destination: '/products/:slug',
       },
     ];
   },

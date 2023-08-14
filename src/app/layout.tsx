@@ -4,6 +4,7 @@ import { Nanum_Gothic, Open_Sans } from '@next/font/google';
 import { Metadata } from 'next';
 import styles from './layout.module.css';
 import RootStyleRegistry from '@/lib/RootStyleRegistry';
+import GlobalThemeWrapper from '@/lib/GlobalThemeWrapper';
 
 const sans = Open_Sans({ subsets: ['latin'] });
 const gothic = Nanum_Gothic({
@@ -28,15 +29,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head />
       <body>
         <RootStyleRegistry>
-          <header className={styles.header}>
-            <h1 className={gothic.className}>Demo Note App</h1>
-            <nav className={styles.nav}>
-              <Link href='/products'>products</Link>
-              <Link href='/about'>about</Link>
-              <Link href='/contact'>Contact</Link>
-            </nav>
-          </header>
-          {children}
+          <GlobalThemeWrapper>
+            <header className={styles.header}>
+              <h1 className={gothic.className}>Demo Note App</h1>
+              <nav className={styles.nav}>
+                <Link href='/products'>products</Link>
+                <Link href='/about'>about</Link>
+                <Link href='/contact'>Contact</Link>
+              </nav>
+            </header>
+            {children}
+          </GlobalThemeWrapper>
         </RootStyleRegistry>
       </body>
     </html>
