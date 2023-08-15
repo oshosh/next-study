@@ -7,6 +7,8 @@ import Counter from '@/components/Counter';
 import DelayInput from '@/components/DelayInput';
 import Text from '@/components/Text';
 import Box from '@/components/layout/Box';
+import Flex from '@/components/layout/Flex';
+import Grid from '@/components/layout/Grid';
 // import { useState } from 'react';
 
 export default function Home() {
@@ -21,6 +23,25 @@ export default function Home() {
   return (
     <>
       <Box $marginTop={{ base: 1, md: 2 }}>
+        <Flex $justifyContent='space-between' $padding='0 10px' $paddingBottom='20px'>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Flex>
+        <Grid $border='1px solid red' $gridTemplateColumns='180px 180px 180px'>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </Grid>
+        <Grid $border='1px solid blue' $gridGap='16px' $gridTemplateColumns='repeat(4, 1fr)'>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </Grid>
         <DelayInput onChange={onChange} />
         <div>{text}</div>
         <Button $color='blue' $backgroundColor='red'>
