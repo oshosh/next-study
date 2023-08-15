@@ -8,7 +8,7 @@ import { ThemeProvider } from 'styled-components';
 
 /**
  * Next 13 Styled Components Settings
- * SSR, GlobalStyle, DefaultTheme..
+ * SSR, GlobalStyle, DefaultTheme...
  */
 export default function RootStyleRegistry({ children }: { children: React.ReactNode }) {
   const [StyledComponentsRegistry, styledComponentsFlushEffect] = useStyledComponentsRegistry();
