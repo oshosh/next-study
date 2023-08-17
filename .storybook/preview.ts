@@ -4,6 +4,7 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { theme } from '../src/themes';
 import * as NextImage from 'next/image';
 import React from 'react';
+import { unoptimizeNextImageForStorybook } from '../src/components/atoms/Image/Image';
 
 const GlobalStyles = createGlobalStyle`
   html,
@@ -42,19 +43,7 @@ const preview: Preview = {
     }),
   ],
 };
-// const OriginalNextImage = NextImage.default;
 
-// Object.defineProperty(NextImage, 'default', {
-//   configurable: true,
-//   // @ts-ignore
-//   value: (props) =>
-//     typeof props.src === 'string'
-//       ? React.createElement(OriginalNextImage, {
-//           ...props,
-//           unoptimized: true,
-//           blurDataURL: props.src,
-//         })
-//       : React.createElement(OriginalNextImage, { ...props, unoptimized: true }),
-// });
+unoptimizeNextImageForStorybook();
 
 export default preview;
