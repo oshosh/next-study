@@ -2,7 +2,7 @@
 
 import { useServerInsertedHTML } from 'next/navigation';
 import { useStyledComponentsRegistry } from './useStyledComponentsRegistry';
-import { ThemeProvider as theme } from '@/themes';
+import { theme } from '@/themes';
 import { GlobalStyle } from '@/themes/globalStyles';
 import { ThemeProvider } from 'styled-components';
 

@@ -1,11 +1,7 @@
-'use client';
 import os from 'os'; // 노드 api
 import Image from 'next/image';
-import { ChangeEvent, useState } from 'react';
-import Button from '@/components/Button';
+import Button from '@/components/atoms/Button';
 import Counter from '@/components/Counter';
-import DelayInput from '@/components/DelayInput';
-import Text from '@/components/Text';
 import Box from '@/components/layout/Box';
 import Flex from '@/components/layout/Flex';
 import Grid from '@/components/layout/Grid';
@@ -15,11 +11,6 @@ export default function Home() {
   console.log('안녕!');
   console.log(os.hostname());
 
-  // const [name, setName] = useState('');
-  const [text, setText] = useState('');
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value);
-  };
   return (
     <>
       <Box $marginTop={{ base: 1, md: 2 }}>
@@ -42,10 +33,14 @@ export default function Home() {
           <div>4</div>
           <div>5</div>
         </Grid>
-        <DelayInput onChange={onChange} />
-        <div>{text}</div>
-        <Button $color='blue' $backgroundColor='red'>
-          <Text>버튼 텍스트</Text>
+
+        <Button
+          $backgroundColor='rgb(245,191,65)'
+          $color='#fff'
+          $fontWeight='bold'
+          $borderRadius='60px'
+        >
+          위험
         </Button>
 
         <h1>홈페이지다!! 버전4</h1>

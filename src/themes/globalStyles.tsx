@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { ThemeProvider } from './index';
+import { theme } from './index';
 
 export const GlobalStyle = createGlobalStyle`
 html,
@@ -19,7 +19,7 @@ a {
   cursor: pointer;
   text-decoration: none;
   transition: .25s;
-  color: ${ThemeProvider.colors.black};
+  color: ${theme.colors.black};
 }
 
 ol, ul {

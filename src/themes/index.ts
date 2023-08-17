@@ -5,7 +5,7 @@ import letterSpacings from './letterSpacings';
 import lineHeights from './lineHeights';
 import space from './space';
 
-export const ThemeProvider: DefaultTheme = {
+export const theme: DefaultTheme = {
   space,
   fontSizes,
   letterSpacings,
