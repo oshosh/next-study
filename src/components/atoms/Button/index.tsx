@@ -1,5 +1,5 @@
 'use client';
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 import { Responsive } from '@/types';
 import { toPropValue, Color, FontSize, LetterSpacing, LineHeight, Space } from '@/utils/styles';
 import { ButtonHTMLAttributes } from 'react';

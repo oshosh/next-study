@@ -19,7 +19,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
-  staticDirs: ['public'], // 이미지
+  staticDirs: ['../public'], // 이미지
   babel: async (options) => ({
     ...options,
     plugins: [

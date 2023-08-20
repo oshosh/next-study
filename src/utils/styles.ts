@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
-import { ThemeProvider } from '@/themes';
+import { theme } from '@/themes';
 import { Responsive, ResponsiveProp } from '@/types';
 
 // Theme의 타입
-export type AppTheme = typeof ThemeProvider;
+export type AppTheme = typeof theme;
 
-type SpaceThemeKeys = keyof typeof ThemeProvider.space;
-type ColorThemeKeys = keyof typeof ThemeProvider.colors;
-type FontSizeThemeKeys = keyof typeof ThemeProvider.fontSizes;
-type LetterSpacingThemeKeys = keyof typeof ThemeProvider.letterSpacings;
-type LineHeightThemeKeys = keyof typeof ThemeProvider.lineHeights;
+type SpaceThemeKeys = keyof typeof theme.space;
+type ColorThemeKeys = keyof typeof theme.colors;
+type FontSizeThemeKeys = keyof typeof theme.fontSizes;
+type LetterSpacingThemeKeys = keyof typeof theme.letterSpacings;
+type LineHeightThemeKeys = keyof typeof theme.lineHeights;
 
 // 각 Theme의 키의 타입
 export type Space = SpaceThemeKeys | (string & {});

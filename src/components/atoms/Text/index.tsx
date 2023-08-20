@@ -1,9 +1,27 @@
 'use client';
 import styled from 'styled-components';
 import type { Responsive } from '@/types/styles';
-import { toPropValue, Color, Space } from '@/utils/styles';
+import { toPropValue, Space, Color, FontSize, LetterSpacing, LineHeight } from '@/utils/styles';
 
-export type BoxProps = {
+// https://github.com/vercel/next.js/issues/46605#issuecomment-1639900755
+// styled components 관련 에러 문제
+
+// 텍스트 변형
+export type TextVariant =
+  | 'extraSmall'
+  | 'small'
+  | 'medium'
+  | 'mediumLarge'
+  | 'large'
+  | 'extraLarge';
+
+export interface TextProps {
+  $variant?: TextVariant;
+  $fontSize?: Responsive<FontSize>;
+  $fontWeight?: Responsive<string>;
+  $letterSpacing?: Responsive<LetterSpacing>;
+  $lineHeight?: Responsive<LineHeight>;
+  $textAlign?: Responsive<string>;
   $color?: Responsive<Color>;
   $backgroundColor?: Responsive<Color>;
   $width?: Responsive<string>;
@@ -23,13 +41,60 @@ export type BoxProps = {
   $paddingRight?: Responsive<Space>;
   $paddingBottom?: Responsive<Space>;
   $paddingLeft?: Responsive<Space>;
+}
+
+const VARIANTS = {
+  extraSmall: {
+    fontSize: 'extraSmall',
+    letterSpacing: 0,
+    lineHeight: 0,
+  },
+  small: {
+    fontSize: 'small',
+    letterSpacing: 1,
+    lineHeight: 1,
+  },
+  medium: {
+    fontSize: 'medium',
+    letterSpacing: 2,
+    lineHeight: 2,
+  },
+  mediumLarge: {
+    fontSize: 'mediumLarge',
+    letterSpacing: 3,
+    lineHeight: 3,
+  },
+  large: {
+    fontSize: 'large',
+    letterSpacing: 4,
+    lineHeight: 4,
+  },
+  extraLarge: {
+    fontSize: 'extraLarge',
+    letterSpacing: 5,
+    lineHeight: 5,
+  },
 };
 
 /**
- * Box 컴포넌트
- * 레이아웃 조정에 사용한다
+ * 텍스트
+ * 변형, 색상, 타이포그래피, 레이아웃, 스페이스 관련 Props 추가
  */
-const Box = styled.div<BoxProps>`
+const Text = styled.span<TextProps>`
+  ${({ $variant, $fontSize, $letterSpacing, $lineHeight, theme }) => {
+    // 변형 스타일에 적용
+    if ($variant && VARIANTS[$variant]) {
+      const styles = [];
+      !$fontSize && styles.push(toPropValue('font-size', VARIANTS[$variant].fontSize, theme));
+      !$letterSpacing &&
+        styles.push(toPropValue('letter-spacing', VARIANTS[$variant].letterSpacing, theme));
+      !$lineHeight && styles.push(toPropValue('line-height', VARIANTS[$variant].lineHeight, theme));
+      return styles.join('\n');
+    }
+  }}
+  ${(props) => toPropValue('font-size', props.$fontSize, props.theme)}
+  ${(props) => toPropValue('letter-spacing', props.$letterSpacing, props.theme)}
+  ${(props) => toPropValue('line-height', props.$lineHeight, props.theme)}
   ${(props) => toPropValue('color', props.$color, props.theme)}
   ${(props) => toPropValue('background-color', props.$backgroundColor, props.theme)}
   ${(props) => toPropValue('width', props.$width, props.theme)}
@@ -51,4 +116,9 @@ const Box = styled.div<BoxProps>`
   ${(props) => toPropValue('padding-right', props.$paddingRight, props.theme)}
 `;
 
-export default Box;
+Text.defaultProps = {
+  $variant: 'medium',
+  $color: 'text',
+};
+
+export default Text;

@@ -4,7 +4,7 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { theme } from '../src/themes';
 import * as NextImage from 'next/image';
 import React from 'react';
-import { unoptimizeNextImageForStorybook } from '../src/components/atoms/Image/Image';
+import { unoptimizeNextImageForStorybook } from '../src/components/atoms/Image';
 
 const GlobalStyles = createGlobalStyle`
   html,
