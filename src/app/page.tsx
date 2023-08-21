@@ -4,6 +4,7 @@ import Grid from '@/components/layout/Grid';
 import Button from '@/components/atoms/Button';
 import Text from '@/components/atoms/Text';
 import ShapeImage from '@/components/atoms/ShapeImage';
+import Input from '@/components/atoms/Input';
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
       <Box $marginTop={{ base: 1, md: 2 }}>
         <Flex $justifyContent='space-between' $padding='0 10px' $paddingBottom='20px'>
           <Text $color='red'>124124</Text>
-          <div>2</div>
+          <Input>2</Input>
           <div>3</div>
         </Flex>
         <Grid $border='1px solid red' $gridTemplateColumns='180px 180px 180px'>
