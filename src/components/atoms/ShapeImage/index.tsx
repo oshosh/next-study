@@ -11,13 +11,9 @@ export const ImageWithShape = styled(UnoptimizedImage)<{ shape?: ImageShape }>`
 `;
 
 const ShapeImage = (props: ShapeImageProps) => {
-  const { shape, ...imageProps } = props;
+  const { shape = 'square', ...imageProps } = props;
 
   return <ImageWithShape shape={shape} {...imageProps} />;
-};
-
-ShapeImage.defaultProps = {
-  shape: 'square',
 };
 
 export default ShapeImage;

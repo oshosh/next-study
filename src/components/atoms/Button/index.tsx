@@ -9,12 +9,14 @@ export type ButtonVariant = 'primary' | 'secondary' | 'danger';
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   $variant?: ButtonVariant;
+  // text contents
   $fontSize?: Responsive<FontSize>;
   $fontWeight?: Responsive<string>;
   $letterSpacing?: Responsive<LetterSpacing>;
   $lineHeight?: Responsive<LineHeight>;
   $textAlign?: Responsive<string>;
   $color?: Responsive<Color>;
+  // wrapper
   $backgroundColor?: Responsive<Color>;
   $width?: Responsive<string>;
   $height?: Responsive<string>;
@@ -125,9 +127,12 @@ const Button = styled.button<ButtonProps>`
     }
   }}
   ${(props) => toPropValue('font-size', props.$fontSize, props.theme)}
+  ${(props) => toPropValue('font-weight', props.$fontWeight, props.theme)}
   ${(props) => toPropValue('letter-spacing', props.$letterSpacing, props.theme)}
   ${(props) => toPropValue('line-height', props.$lineHeight, props.theme)}
+  ${(props) => toPropValue('text-Align', props.$textAlign, props.theme)}
   ${(props) => toPropValue('color', props.$color, props.theme)}
+  // wrapper
   ${(props) => toPropValue('background-color', props.$backgroundColor, props.theme)}
   ${(props) => toPropValue('width', props.$width, props.theme)}
   ${(props) => toPropValue('height', props.$height, props.theme)}

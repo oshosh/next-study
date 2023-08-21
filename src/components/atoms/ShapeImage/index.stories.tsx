@@ -1,6 +1,6 @@
 'use client';
 import { Meta, StoryObj } from '@storybook/react';
-import { ShapeImage, ImageWithShape } from '@/components/atoms/ShapeImage';
+import ShapeImage, { ImageWithShape } from '@/components/atoms/ShapeImage';
 
 const meta = {
   title: 'Atoms/ShapeImage',
